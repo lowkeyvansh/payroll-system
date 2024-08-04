@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Add Employee</h1>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <form action="{{ url_for('add_employee') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <label for="name">Name:</label>
+            {{ form.name }}
+            <label for="position">Position:</label>
+            {{ form.position }}
+            <label for="hourly_rate">Hourly Rate:</label>
+            {{ form.hourly_rate }}
+            {{ form.submit }}
+        </form>
+    </main>
+</body>
+</html>
