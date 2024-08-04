@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Hours</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Log Hours</h1>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <form action="{{ url_for('log_hours') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <label for="employee_id">Employee ID:</label>
+            {{ form.employee_id }}
+            <label for="hours_worked">Hours Worked:</label>
+            {{ form.hours_worked }}
+            {{ form.submit }}
+        </form>
+    </main>
+</body>
+</html>
