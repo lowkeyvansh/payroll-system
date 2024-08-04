@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Payroll System</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{{ url_for('add_employee') }}">Add Employee</a>
+            <a href="{{ url_for('log_hours') }}">Log Hours</a>
+            <a href="{{ url_for('payroll_report') }}">Payroll Report</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Employees</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Hourly Rate</th>
+            </tr>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.position }}</td>
+                <td>${{ employee.hourly_rate }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Work Logs</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Employee ID</th>
+                <th>Hours Worked</th>
+            </tr>
+            {% for log in work_logs %}
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.employee_id }}</td>
+                <td>{{ log.hours_worked }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>
